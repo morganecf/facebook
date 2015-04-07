@@ -85,15 +85,7 @@ while True:
 		if not loaded_more:
 			break
 		time.sleep(1)
-	except URLError:
-		print "reconnecting......"
-		# Try to reconnect 
-		time.sleep(5)
-		try:
-			login()
-		except:
-			continue
-	except selenium.common.exceptions.StaleElementReferenceException:
+	except (URLError, selenium.common.exceptions.StaleElementReferenceException):
 		print "reconnecting......"
 		# Try to reconnect 
 		time.sleep(5)
